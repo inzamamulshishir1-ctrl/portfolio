@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Inzamamul Haque - Biomedical Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0A4D68',
+                        accent: '#088395',
+                        purple: '#05BFDB',
+                        coral: '#00D9FF',
+                        dark: '#041C32',
+                        mint: '#F8F9FA',
+                        sage: '#088395',
+                        lightgreen: '#E8F4F8',
+                        mintgreen: '#05BFDB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Waveform Animation */
+        @keyframes wave {
+            0%, 100% { d: path("M0,50 Q25,30 50,50 T100,50"); }
+            50% { d: path("M0,50 Q25,70 50,50 T100,50"); }
+        }
+
+        .wave-line {
+            animation: wave 2s ease-in-out infinite;
+        }
+
+        /* Particle Background */
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(139, 92, 246, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            50% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
+        }
+
+        /* Gradient Animation */
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-animate {
+            background: linear-gradient(-45deg, #312e81, #8b5cf6, #06b6d4, #f97316);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        /* Card Hover Effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Typing Effect */
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        /* Progress Bar Animation */
+        @keyframes fillBar {
+            from { width: 0; }
+        }
+
+        .progress-bar {
+            animation: fillBar 1.5s ease-out forwards;
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8b5cf6, #06b6d4);
+            border-radius: 5px;
+        }
+
+        /* ECG Line Animation */
+        .ecg-line {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: draw 3s ease-in-out infinite;
+        }
+         @keyframes draw {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Mobile responsive fixes */
+        @media (max-width: 768px) {
+            .text-5xl {
+                font-size: 2rem;
+            }
+            .text-7xl {
+                font-size: 2.5rem;
+            }
+            .text-xl {
+                font-size: 1.125rem;
+            }
+            .text-2xl {
+                font-size: 1.25rem;
+            }
+            section {
+                overflow-x: hidden !important;
+            }
+            .max-w-7xl {
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+    <!-- Navigation -->
+    <nav class="bg-white/95 backdrop-blur-lg shadow-lg fixed w-full z-50 transition-all duration-300 border-b border-accent/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center space-x-3">
+                    <div>
+                        <div class="text-xl font-bold text-primary">
+                            Inzamamul Haque
+                        </div>
+                        <div class="text-xs text-gray-500 font-medium">Biomedical Engineer</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-1">
+                    <a href="#home" class="nav-link px-4 py-2 rounded-lg text-gray-700 hover:text-accent hover:bg-accent/5 transition-all duration-300 font-medium">
+                        <i class="fas fa-home mr-1"></i>Home
+                    </a>
+                    <a href="#about" class="nav-link px-4 py-2 rounded-lg text-gray-700 hover:text-accent hover:bg-accent/5 transition-all duration-300 font-medium">
+                        <i class="fas fa-user mr-1"></i>About
+                    </a>
+                    <a href="#research" class="nav-link px-4 py-2 rounded-lg text-gray-700 hover:text-accent hover:bg-accent/5 transition-all duration-300 font-medium">
+                        <i class="fas fa-flask mr-1"></i>Research
+                    </a>
+                    <a href="#projects" class="nav-link px-4 py-2 rounded-lg text-gray-700 hover:text-accent hover:bg-accent/5 transition-all duration-300 font-medium">
+                        <i class="fas fa-project-diagram mr-1"></i>Projects
+                    </a>
+                    <a href="#skills" class="nav-link px-4 py-2 rounded-lg text-gray-700 hover:text-accent hover:bg-accent/5 transition-all duration-300 font-medium">
+                        <i class="fas fa-cogs mr-1"></i>Skills
+                    </a>
+                    <a href="#contact" class="px-4 py-2 bg-accent text-white rounded-lg font-medium hover:shadow-lg hover:scale-105 transition-all duration-300">
+                        <i class="fas fa-envelope mr-1"></i>Contact
+                    </a>
+                </div>
+                <button class="md:hidden focus:outline-none p-2 rounded-lg hover:bg-gray-100 transition-colors" id="menu-btn">
+                    <i class="fas fa-bars text-gray-700 text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-white border-t border-gray-100" id="mobile-menu">
+            <div class="px-4 pt-2 pb-3 space-y-1">
+                <a href="#home" class="block px-4 py-3 text-gray-700 hover:text-accent hover:bg-accent/5 rounded-lg transition font-medium">
+                    <i class="fas fa-home mr-2"></i>Home
+                </a>
+                <a href="#about" class="block px-4 py-3 text-gray-700 hover:text-accent hover:bg-accent/5 rounded-lg transition font-medium">
+                    <i class="fas fa-user mr-2"></i>About
+                </a>
+                <a href="#research" class="block px-4 py-3 text-gray-700 hover:text-accent hover:bg-accent/5 rounded-lg transition font-medium">
+                    <i class="fas fa-flask mr-2"></i>Research
+                </a>
+                <a href="#projects" class="block px-4 py-3 text-gray-700 hover:text-accent hover:bg-accent/5 rounded-lg transition font-medium">
+                    <i class="fas fa-project-diagram mr-2"></i>Projects
+                </a>
+                <a href="#skills" class="block px-4 py-3 text-gray-700 hover:text-accent hover:bg-accent/5 rounded-lg transition font-medium">
+                    <i class="fas fa-cogs mr-2"></i>Skills
+                </a>
+                <a href="#contact" class="block px-4 py-3 bg-accent text-white rounded-lg transition font-medium text-center">
+                    <i class="fas fa-envelope mr-2"></i>Contact
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center overflow-hidden bg-primary">
+        <!-- Particles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="particle" style="width: 4px; height: 4px; top: 20%; left: 10%;"></div>
+            <div class="particle" style="width: 6px; height: 6px; top: 40%; left: 80%; animation-delay: 1s;"></div>
+            <div class="particle" style="width: 3px; height: 3px; top: 60%; left: 30%; animation-delay: 2s;"></div>
+            <div class="particle" style="width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="width: 4px; height: 4px; top: 30%; left: 60%; animation-delay: 0.5s;"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="text-center text-white">
+                <!-- Active Status Indicator -->
+                <div class="flex items-center justify-center mb-6">
+                    <span class="relative flex h-3 w-3 mr-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+                    </span>
+                    <span class="text-sm font-medium opacity-90">Actively Researching</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-extrabold mb-4 tracking-tight px-4 text-white">
+                    Md. Inzamamul Haque Shishir
+                </h1>
+                
+                <div class="text-lg sm:text-xl md:text-2xl mb-6 font-semibold opacity-95 px-4 text-white">
+                    Biomedical Engineer | Biosensor Development | Machine Learning
+                </div>
+                
+                <p class="text-base sm:text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed px-4 text-white">
+                    Bridging biology and intelligence through advanced sensing technologies
+                </p>
+
+                <!-- SVG Waveform -->
+                <div class="mb-8 px-4 max-w-full overflow-hidden">
+                    <svg width="100%" height="60" viewBox="0 0 1200 60" preserveAspectRatio="xMidYMid meet" class="opacity-70">
+                        <path class="ecg-line" d="M0,30 L200,30 L220,10 L240,50 L260,30 L300,30 L320,15 L340,45 L360,30 L1200,30" 
+                              fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="2"/>
+                    </svg>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 max-w-4xl mx-auto flex-wrap">
+                    <a href="#research" class="group bg-white text-primary px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-gray-50 transition-all duration-300 shadow-xl transform hover:scale-105 hover:shadow-2xl flex items-center space-x-2 text-sm sm:text-base w-full sm:w-auto justify-center">
+                        <i class="fas fa-flask group-hover:rotate-12 transition-transform duration-300"></i>
+                        <span>View Research</span>
+                    </a>
+                    <a href="CV 2.pdf" download class="group bg-accent text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-sage transition-all duration-300 shadow-xl transform hover:scale-105 hover:shadow-2xl flex items-center space-x-2 text-sm sm:text-base w-full sm:w-auto justify-center">
+                        <i class="fas fa-download group-hover:translate-y-1 transition-transform duration-300"></i>
+                        <span>Download CV</span>
+                    </a>
+                    <a href="#contact" class="group border-2 border-white text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-bold hover:bg-white hover:text-primary transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center space-x-2 text-sm sm:text-base w-full sm:w-auto justify-center">
+                        <i class="fas fa-envelope group-hover:scale-110 transition-transform duration-300"></i>
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+
+                <!-- Social Links -->
+                <div class="flex justify-center space-x-6 mt-8 px-4">
+                    <a href="https://linkedin.com/in/inzamamul-haque-shishir6116" target="_blank" class="text-white hover:text-accent transition text-2xl transform hover:scale-110" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://researchgate.net/profile/Mdinzamamul-Shishir" target="_blank" class="text-white hover:text-accent transition text-2xl transform hover:scale-110" title="ResearchGate">
+                        <i class="fab fa-researchgate"></i>
+                    </a>
+                    <a href="mailto:inzamamulshishir1@gmail.com" class="text-white hover:text-accent transition text-2xl transform hover:scale-110" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://github.com/inzamamul-haque" target="_blank" class="text-white hover:text-accent transition text-2xl transform hover:scale-110" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl opacity-70"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                About Me
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Profile Image Section -->
+                <div class="order-1 md:order-2 flex justify-center">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-accent rounded-full blur-2xl opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
+                        <div class="relative">
+                            <img src="profile.jpg" alt="Inzamamul Haque" class="relative rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-8 border-white shadow-2xl transform group-hover:scale-105 transition duration-500 ring-4 ring-accent/20">
+                            <div class="absolute -bottom-2 -right-2 bg-accent p-3 rounded-full shadow-xl">
+                                <i class="fas fa-graduation-cap text-white text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-bold mb-4 text-primary">Research Focus</h3>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        I'm a dedicated 4th year Biomedical Engineering student at Jashore University of Science and Technology (JUST) with hands-on experience in biosensor device development and machine learning applications in healthcare.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        My research focuses on developing low-cost, accessible diagnostic technologies for resource-limited settings, particularly in wearable biosensors and lab-on-chip platforms. I combine electrochemical sensing with machine learning algorithms to create intelligent healthcare monitoring systems.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <div class="text-3xl font-bold text-accent">3.1</div>
+                            <div class="text-sm text-gray-600">CGPA (6/8 semesters)</div>
+                        </div>
+                        <div class="bg-accent/10 p-4 rounded-lg">
+                            <div class="text-3xl font-bold text-accent">2026</div>
+                            <div class="text-sm text-gray-600">Expected Graduation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-3 bg-white p-8 rounded-2xl shadow-xl border border-accent/10 hover:shadow-2xl transition duration-300">
+                    <h3 class="text-xl font-bold mb-6 text-primary">Research Pipeline</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">1</div>
+                            <div>
+                                <div class="font-semibold">Biosensor Development</div>
+                                <div class="text-sm text-gray-600">Electrochemical sensing platforms</div>
+                            </div>
+                        </div>
+                        <div class="h-8 w-0.5 bg-accent ml-6"></div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-white font-bold mr-4">2</div>
+                            <div>
+                                <div class="font-semibold">Data Analysis</div>
+                                <div class="text-sm text-gray-600">Feature extraction & interpretation</div>
+                            </div>
+                        </div>
+                        <div class="h-8 w-0.5 bg-accent ml-6"></div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-dark rounded-full flex items-center justify-center text-white font-bold mr-4">3</div>
+                            <div>
+                                <div class="font-semibold">Machine Learning</div>
+                                <div class="text-sm text-gray-600">Predictive modeling & classification</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Publications -->
+    <section id="research" class="py-20 bg-lightgreen">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                Research & Publications
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+                <!-- Featured Publication -->
+            <div class="max-w-4xl mx-auto mb-12">
+                <div class="bg-white rounded-2xl shadow-2xl p-8 card-hover border-l-4 border-accent hover:shadow-accent/20 transition-all duration-300">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-accent/10 p-4 rounded-xl mr-4">
+                            <i class="fas fa-file-alt text-3xl text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <span class="bg-accent text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
+                                <i class="fas fa-star mr-1"></i>PUBLISHED 2025
+                            </span>
+                            <h3 class="text-2xl font-bold mt-3 mb-3 text-gray-900 leading-tight">
+                                A portable smartphone-based electrochemical sensing platform for rapid and sensitive detection of creatinine in blood serum
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Published in <span class="font-semibold text-primary">RSC Advances, 2025</span>
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">Biosensors</span>
+                                <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">Electrochemistry</span>
+                                <span class="bg-dark/10 text-dark text-xs font-semibold px-3 py-1 rounded-full">Point-of-Care</span>
+                            </div>
+                            <a href="https://doi.org/10.1039/D5RA03128A" target="_blank" 
+                               class="inline-flex items-center text-accent hover:text-primary transition font-semibold group">
+                                <i class="fas fa-external-link-alt mr-2 group-hover:translate-x-1 transition-transform"></i>
+                                View Publication (DOI: 10.1039/D5RA03128A)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lab Affiliation -->
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-primary text-white rounded-2xl shadow-2xl p-8 hover:shadow-accent/30 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-white/20 p-4 rounded-xl mr-4">
+                            <i class="fas fa-flask text-4xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold">Research Affiliation</h3>
+                            <p class="opacity-90 text-lg">Laboratory of Nano-bio and Advanced Materials Engineering (NAME)</p>
+                        </div>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="text-sm opacity-75 mb-1"><i class="fas fa-university mr-2"></i>Institution</div>
+                            <div class="font-semibold text-lg">Jashore University of Science and Technology</div>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="text-sm opacity-75 mb-1"><i class="fas fa-clock mr-2"></i>Duration</div>
+                            <div class="font-semibold text-lg">2023 - Present</div>
+                        </div>
+                        <div class="md:col-span-2 bg-white/10 p-4 rounded-lg backdrop-blur-sm">
+                            <div class="text-sm opacity-75 mb-1"><i class="fas fa-user-graduate mr-2"></i>Supervised by</div>
+                            <div class="font-semibold text-lg">Dr. Md. Zaved Hossain Khan</div>
+                            <div class="text-sm opacity-90 mt-1">Professor & Chairman, Department of Chemical Engineering</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                Projects
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 - HealthTracker -->
+                <div class="bg-white rounded-2xl p-6 card-hover border border-accent/20 shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent text-white p-3 rounded-lg mr-4 shadow-lg">
+                            <i class="fas fa-heartbeat text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">HealthTracker</h3>
+                            <p class="text-sm text-gray-600"><i class="fas fa-calendar mr-1"></i>2024</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Machine Learning-Enabled Dual Sensor Platform for comprehensive diabetic care monitoring. Integrated real-time glucose and ECG monitoring with intelligent alert systems.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">Machine Learning</span>
+                        <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">Biosensors</span>
+                        <span class="bg-dark/10 text-dark text-xs font-semibold px-3 py-1 rounded-full">Data Analysis</span>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="text-sm font-semibold text-gray-700 mb-2">Key Features:</div>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Dual sensor integration</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Real-time monitoring</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>ML-based predictions</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Project 2 - Creatinine Detection -->
+                <div class="bg-white rounded-2xl p-6 card-hover border border-accent/20 shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent text-white p-3 rounded-lg mr-4 shadow-lg">
+                            <i class="fas fa-vial text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Creatinine Sensor</h3>
+                            <p class="text-sm text-gray-600"><i class="fas fa-calendar mr-1"></i>2024-2025</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4 leading-relaxed">
+                        Smartphone-based electrochemical sensing platform for rapid and sensitive detection of creatinine in blood serum. Published in RSC Advances.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">Electrochemistry</span>
+                        <span class="bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">POC Device</span>
+                        <span class="bg-dark/10 text-dark text-xs font-semibold px-3 py-1 rounded-full">Published</span>
+                    </div>
+                    <div class="border-t border-gray-200 pt-4">
+                        <div class="text-sm font-semibold text-gray-700 mb-2">Key Features:</div>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li><i class="fas fa-check text-accent mr-2"></i>Portable & affordable</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>High sensitivity</li>
+                            <li><i class="fas fa-check text-accent mr-2"></i>Smartphone integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Placeholder for Future Project -->
+                <div class="bg-lightgreen rounded-2xl p-6 border-2 border-dashed border-accent/30 flex flex-col items-center justify-center text-center hover:border-accent transition-all duration-300 hover:shadow-lg">
+                    <div class="bg-accent/10 p-6 rounded-full mb-4">
+                        <i class="fas fa-plus-circle text-5xl text-accent"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-600 mb-2">Next Innovation</h3>
+                    <p class="text-gray-500">More exciting research coming soon...</p>
+                    <p class="text-sm text-gray-400 mt-4">Stay tuned for updates!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                Technical Skills
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Biosensor Development -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-t-4 border-accent hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent/10 p-3 rounded-lg mr-3">
+                            <i class="fas fa-microscope text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Biosensor Development</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Electrochemical Sensing</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Lab-on-chip Platforms</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Signal Acquisition</li>
+                    </ul>
+                </div>
+
+                <!-- Machine Learning -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-t-4 border-accent hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-br from-accent/10 to-accent/20 p-3 rounded-lg mr-3">
+                            <i class="fas fa-brain text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Machine Learning</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Model Development</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Data Analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Feature Extraction</li>
+                    </ul>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-t-4 border-dark hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-dark/10 p-3 rounded-lg mr-3">
+                            <i class="fas fa-chart-line text-2xl text-dark"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Data Analysis</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-dark mr-2"></i>Biosignal Analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-dark mr-2"></i>ECG Interpretation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-dark mr-2"></i>Data Visualization</li>
+                    </ul>
+                </div>
+
+                <!-- Lab Techniques -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-t-4 border-accent hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-accent/10 p-3 rounded-lg mr-3">
+                            <i class="fas fa-flask text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Lab Techniques</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>FTIR Spectroscopy</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>ATR Analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Material Characterization</li>
+                    </ul>
+                </div>
+                                <!-- Biomedical Instrumentation -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-t-4 border-accent hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-gradient-to-br from-accent/10 to-accent/20 p-3 rounded-lg mr-3">
+                            <i class="fas fa-stethoscope text-2xl text-accent"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Instrumentation</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Device Development</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Measurement Systems</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-accent mr-2"></i>Wearable Sensors</li>
+                    </ul>
+                </div>
+
+                <!-- Professional Development -->
+                <div class="bg-white rounded-xl p-6 shadow-lg card-hover border-t-4 border-dark hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-dark/10 p-3 rounded-lg mr-3">
+                            <i class="fas fa-certificate text-2xl text-dark"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900">Training & Workshops</h3>
+                    </div>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-center"><i class="fas fa-check-circle text-dark mr-2"></i>Academic Writing</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-dark mr-2"></i>Paper Publication</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-coral mr-2"></i>Research Methods</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership & Activities -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                Leadership & Activities
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-2xl p-8 border-l-4 border-accent shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-accent p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <i class="fas fa-robot text-3xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">General Secretary</h3>
+                            <p class="text-gray-600 font-medium">JUST Robo Society</p>
+                            <p class="text-sm text-accent font-semibold mt-1"><i class="fas fa-calendar-alt mr-1"></i>2024 - Present</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Leading robotics initiatives and organizing technical workshops for students passionate about automation and robotics technology.
+                    </p>
+                </div>
+                 <div class="bg-gradient-to-br from-accent/5 to-accent/10 rounded-2xl p-8 border-l-4 border-accent shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-gradient-to-br from-accent to-accent/80 p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <i class="fas fa-users text-3xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Secretary</h3>
+                            <p class="text-gray-600 font-medium">Corporate & Public Relations, JUST Research Society</p>
+                            <p class="text-sm text-accent font-semibold mt-1"><i class="fas fa-calendar-alt mr-1"></i>2024 - Present</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed">
+                        Managing external partnerships and communications, fostering research collaborations and promoting academic excellence.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 border-l-4 border-dark md:col-span-2 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                    <div class="flex items-center">
+                        <div class="bg-dark p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                            <i class="fas fa-hand-holding-heart text-3xl text-white"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Community Service</h3>
+                            <p class="text-gray-700 mt-2 leading-relaxed">Regular Blood Donor - Contributing to saving lives through voluntary blood donation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                Education
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8 border-t-4 border-accent">
+                    <div class="flex items-start mb-6">
+                        <div class="bg-accent/10 p-4 rounded-lg mr-6">
+                            <i class="fas fa-graduation-cap text-4xl text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 mb-2">Bachelor of Science in Biomedical Engineering</h3>
+                            <p class="text-lg text-primary font-semibold mb-2">Jashore University of Science and Technology (JUST)</p>
+                            <div class="flex flex-wrap gap-4 mb-4">
+                                <span class="text-gray-600"><i class="fas fa-calendar-alt text-accent mr-2"></i>Expected: June 2026</span>
+                                <span class="text-gray-600"><i class="fas fa-chart-line text-accent mr-2"></i>CGPA: 3.1/4.0</span>
+                                <span class="text-gray-600"><i class="fas fa-book text-coral mr-2"></i>6/8 Semesters Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-t border-gray-200 pt-6">
+                        <h4 class="font-bold text-gray-900 mb-4">Relevant Coursework:</h4>
+                        <div class="grid md:grid-cols-2 gap-3">
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Human Assist Devices</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Medical Imaging</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Biomedical Instrumentation</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Bioinformatics</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Biomaterials & Prosthetics</span>
+                            </div>
+                            <div class="flex items-center text-gray-700">
+                                <i class="fas fa-check text-accent mr-2"></i>
+                                <span>Electronic Devices & Circuits</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 text-primary">
+                Get In Touch
+            </h2>
+            <div class="w-24 h-1 bg-accent mx-auto mb-12"></div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Contact Info Cards -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Email Card -->
+                    <div class="bg-white rounded-2xl p-8 border border-accent/20 hover:shadow-2xl transition-all duration-300 group">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-accent p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-envelope text-white text-3xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-600 mb-1">Email Address</div>
+                                <a href="mailto:inzamamulshishir1@gmail.com" class="text-xl font-bold text-gray-900 hover:text-accent transition">
+                                    inzamamulshishir1@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">Feel free to reach out via email for collaborations, research opportunities, or inquiries.</p>
+                    </div>
+
+                    <!-- Location Card -->
+                    <div class="bg-white rounded-2xl p-8 border border-accent/20 hover:shadow-2xl transition-all duration-300 group">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-accent p-4 rounded-xl mr-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                                <i class="fas fa-map-marker-alt text-white text-3xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-sm font-medium text-gray-600 mb-1">Location</div>
+                                <div class="text-lg font-bold text-gray-900">Jashore, Bangladesh</div>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm">
+                            Department of Biomedical Engineering<br>
+                            Jashore University of Science and Technology<br>
+                            Jashore-7408, Bangladesh
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Social Media Connect Card -->
+                <div class="bg-gradient-to-r from-primary via-purple to-accent text-white rounded-2xl p-10 shadow-2xl hover:shadow-accent/30 transition-all duration-300">
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl font-bold mb-3">Let's Connect!</h3>
+                        <p class="text-white/90 text-lg">Follow my research journey and connect on social media</p>
+                    </div>
+                    <div class="flex justify-center gap-6">
+                        <a href="https://linkedin.com/in/inzamamul-haque-shishir6116" target="_blank" 
+                           class="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:rotate-6 group" title="LinkedIn">
+                            <i class="fab fa-linkedin text-3xl group-hover:scale-125 transition-transform"></i>
+                        </a>
+                        <a href="https://researchgate.net/profile/Mdinzamamul-Shishir" target="_blank" 
+                           class="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:rotate-6 group" title="ResearchGate">
+                            <i class="fab fa-researchgate text-3xl group-hover:scale-125 transition-transform"></i>
+                        </a>
+                        <a href="mailto:inzamamulshishir1@gmail.com" 
+                           class="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:rotate-6 group" title="Email">
+                            <i class="fas fa-envelope text-3xl group-hover:scale-125 transition-transform"></i>
+                        </a>
+                        <a href="https://github.com/inzamamul-haque" target="_blank" 
+                           class="bg-white/20 hover:bg-white/30 backdrop-blur-sm p-5 rounded-xl transition-all duration-300 transform hover:scale-110 hover:rotate-6 group" title="GitHub">
+                            <i class="fab fa-github text-3xl group-hover:scale-125 transition-transform"></i>
+                        </a>
+                    </div>
+                    <div class="text-center mt-8 pt-8 border-t border-white/20">
+                        <p class="text-white/80 text-sm">Open to research collaborations and networking opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+     <!-- References Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                References
+            </h2>
+            <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-12"></div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Reference 1 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-accent/10 p-4 rounded-full mr-4">
+                            <i class="fas fa-user-tie text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Dr. Md. Zaved Hossain Khan</h3>
+                            <p class="text-sm text-gray-600 mb-2">Professor and Chairman</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p><strong>Department:</strong> Chemical Engineering</p>
+                        <p><strong>Director:</strong> NAME Lab (Nano-bio and Advanced Materials Engineering)</p>
+                        <p><strong>Institution:</strong> Jashore University of Science and Technology</p>
+                        <p class="pt-3 border-t border-gray-200">
+                            <i class="fas fa-envelope text-accent mr-2"></i>
+                            <a href="mailto:zaved.khan@yahoo.com" class="text-accent hover:text-accent transition">zaved.khan@yahoo.com</a>
+                        </p>
+                        
+                    </div>
+                </div>
+
+                <!-- Reference 2 -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
+                    <div class="flex items-start mb-4">
+                        <div class="bg-accent/10 p-4 rounded-full mr-4">
+                            <i class="fas fa-user-tie text-2xl text-accent"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900">Md. Faisal Mina</h3>
+                            <p class="text-sm text-gray-600 mb-2">Lecturer</p>
+                        </div>
+                    </div>
+                    <div class="space-y-2 text-sm text-gray-700">
+                        <p><strong>Department:</strong> Biomedical Engineering</p>
+                        <p><strong>Institution:</strong> Jashore University of Science and Technology</p>
+                        <p class="pt-3 border-t border-gray-200">
+                            <i class="fas fa-envelope text-accent mr-2"></i>
+                            <a href="mailto:mf.mina@just.edu.bd" class="text-accent hover:text-accent transition">mf.mina@just.edu.bd</a>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                        Inzamamul Haque
+                    </h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Biomedical Engineering student passionate about developing accessible diagnostic technologies through biosensors and machine learning.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-accent transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-accent transition">About</a></li>
+                        <li><a href="#research" class="text-gray-400 hover:text-accent transition">Research</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-accent transition">Projects</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Connect</h4>
+                    <div class="flex gap-4 mb-4">
+                        <a href="https://linkedin.com/in/inzamamul-haque-shishir6116" target="_blank" 
+                           class="bg-white/10 hover:bg-accent p-3 rounded-lg transition transform hover:scale-110">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="https://researchgate.net/profile/Mdinzamamul-Shishir" target="_blank" 
+                           class="bg-white/10 hover:bg-accent p-3 rounded-lg transition transform hover:scale-110">
+                            <i class="fab fa-researchgate text-xl"></i>
+                        </a>
+                        <a href="mailto:inzamamulshishir1@gmail.com" 
+                           class="bg-white/10 hover:bg-coral p-3 rounded-lg transition transform hover:scale-110">
+                            <i class="fas fa-envelope text-xl"></i>
+                        </a>
+                        <a href="https://github.com/inzamamul-haque" target="_blank" 
+                           class="bg-white/10 hover:bg-accent p-3 rounded-lg transition transform hover:scale-110">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        <i class="fas fa-envelope text-accent mr-2"></i>
+                        inzamamulshishir1@gmail.com
+                    </p>
+                    <p class="text-gray-400 text-sm mt-2">
+                        <i class="fas fa-map-marker-alt text-accent mr-2"></i>
+                        Jashore, Bangladesh
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Md. Inzamamul Haque Shishir. All rights reserved.</p>
+                <p class="text-sm mt-2">Biomedical Engineering | Biosensor Development | Machine Learning</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking links
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based navbar background with active link highlighting
+        let lastScroll = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+            
+            lastScroll = currentScroll;
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'all 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
